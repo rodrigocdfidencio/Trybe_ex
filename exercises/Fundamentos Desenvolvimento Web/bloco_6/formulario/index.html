@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulário</title>
+</head>
+<body>
+    <header>
+        <h1>Formulário de cadastro</h1>
+    </header>
+    <form name="formulario" action="get">
+    <section>
+        <fieldset>
+            <label for="name">Nome:</label>
+            <input class="form-itens"  id="name" type="text" required maxlength="40">
+            <br>
+            <label for="email">E-mail:</label>
+            <input class="form-itens"  type="email" name="email" id="email" required maxlength="50">
+            <br>
+            <label for="cpf">CPF:</label>
+            <input class="form-itens"  type="number" name="cpf" id="cpf" required maxlength="11">
+            <br>
+            <label for="endereco">Endereço:</label>
+            <input class="form-itens"  id="endereco" type="text" required maxlength="200">
+            <br>
+            <label for="cidade">Cidade:</label>
+            <input class="form-itens"  id="cidade" type="text" required maxlength="28">
+            <br>
+            <label for="estado">Estado:</label>
+            <select class="form-itens"  name="estado" id="estado">
+                <option value="sp">São Paulo</option>
+                <option value="mg">Minas Gerais</option>
+                <option value="rj">Rio de Janeiro</option>
+                <option value="es">Espírito Santo</option>
+            </select>
+            <br>
+            <p>Tipo:</p>
+            <input class="form-itens"  type="radio" name="tipo" value="Casa" id="type1"> 
+            <label for="type1">Casa</label>
+                
+            <br>
+            <input class="form-itens"  type="radio" name="tipo" value="Apartamento" id="type2">
+            <label for="type2">Apartamento</label>
+            <br>
+        
+        </fieldset>
+    </section>
+    <section>
+        <fieldset>
+            <label for="resumo">Resumo do curículo:</label>
+            <input class="form-itens" id="resumo" type="textarea" required maxlength="40">
+            <br>
+            <label for="cargo">Cargo</label>
+            <input class="form-itens" type="text" id="cargo" required>
+            <br>
+            <label for="descricaocargo">Descrição do Cargo</label>
+            <input class="form-itens"  type="text" id="descricaocargo" required>
+            <br>
+            <label for="data">Data de início</label>
+            <input  class="form-itens" type="date" id="data" required>
+        </fieldset>
+    </section>
+    <button id="enviar">Enviar</button>
+</form>
+<!-- Code injected by live-server -->
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,18 +1,16 @@
-/* Faça as modificações necessárias na função para que o seu comportamento respeite o escopo no qual cada variável foi declarada.
-Modifique a estrutura da função para que ela seja uma arrow function .
-Modifique as concatenações para template literals . */
+const clicks = document.getElementById('clickBtn');
+
+let contador = 0;
+
+const clickCounter = event => {
+    contador += 1;
+    document.getElementById("clicks").innerHTML = contador;
+}
+
+clicks.addEventListener('click', clickCounter);
 
 
-const testingScope(escopo) => {
-    if (escopo === true) {
-      var ifScope = 'Não devo ser utilizada fora do meu escopo (if)';
-      ifScope = ifScope + ' ótimo, fui utilizada no escopo !';
-      console.log(ifScope);
-    } else {
-      var elseScope = 'Não devo ser utilizada fora meu escopo (else)';
-      console.log(elseScope);
-    }
-    console.log(ifScope + ' o que estou fazendo aqui ? :O'); // Se necessário esta linha pode ser removida.
-  }
-
-  testingScope(true);
+exemplo = "Tryber x aqui!";
+let param = 'Bebeto'
+resultado = exemplo.replace("x", param);
+console.log(resultado)

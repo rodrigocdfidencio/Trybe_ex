@@ -63,7 +63,9 @@ Crie uma função para listar os valores de um objeto. Essa função deve recebe
 Crie um objeto de nome allLessons , que deve agrupar todas as aulas através do Object.assign . Cada chave desse novo objeto será uma aula, sendo essas chaves: lesson1 , lesson2 e lesson3 . Ao executar o comando console.log(allLessons) , a saída deverá ser a seguinte:
 Usando o objeto criado no exercício 5, crie uma função que retorne o número total de estudantes em todas as aulas.
 Crie uma função que obtenha o valor da chave de acordo com a sua posição no objeto. Por exemplo: 
-Crie uma função que verifique se o par (chave / valor) existe na função. Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. Exemplo:*/
+Crie uma função que verifique se o par (chave / valor) existe na função. Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. Exemplo:
+Crie uma função para contar quantos estudantes assistiram às aulas de Matemática. Use o objeto criado no exercício 5.
+Crie uma função que deverá retornar um objeto que representa o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5:*/
 
 const lesson1 = {
   materia: "Matemática",
@@ -116,4 +118,53 @@ const numberOfStudents = (obj) => {
 console.log(numberOfStudents(allLessons));
 // ------------------------------------------
 
-console.log(getValueByNumber(lesson1, 0));
+const getValueByNumber = (obj, number) => Object.values(obj)[number];
+console.log(getValueByNumber(lesson2, 2));
+// ------------------------------------------
+
+const checkKeyValue = (obj, key, value) => {
+  const arr = Object.entries(obj);
+  let equal = false;
+  for (index in arr) {
+    if (arr[index][0] === key && arr[index][1] === value) {
+      equal = true;
+      return equal;
+    }
+  }
+};
+console.log(checkKeyValue(lesson2, "professor", "Carlos"));
+// ------------------------------------------
+
+const checkMath = (obj) => {
+  const arr = Object.keys(obj);
+  let total = 0;
+  for (index in arr) {
+    if (obj[arr[index]].materia === "Matemática") {
+      total += obj[arr[index]].numeroEstudantes;
+      return total;
+    }
+  }
+};
+console.log(checkMath(allLessons));
+// ------------------------------------------
+
+const getInfo = (obj, name) => {
+  const allLessons = [];
+  let allStudent = 0;
+  const array = Object.values(obj);
+  for (index in array) {
+    if (array[index].professor === name) {
+      allLessons.push(array[index].materia);
+      allStudent += array[index].numeroEstudantes;
+    }
+  }
+  return { lessons: allLessons, estudantes: allStudent };
+};
+
+const createReport = (allLessons, name) => {
+  const report = {};
+  report.professor = name;
+  Object.assign(report, getInfo(allLessons, name));
+  return report;
+};
+console.log(createReport(allLessons, "Carlos"));
